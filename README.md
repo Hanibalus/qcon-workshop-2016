@@ -27,6 +27,10 @@ https://github.com/dsyer/docker-services
 
 Open Zipkin: http://zipkin.io/
 
+Spring Security tutorials:
+https://spring.io/guides/tutorials/spring-security-and-angular-js/ and
+https://spring.io/guides/tutorials/spring-boot-oauth2/
+
 ## Breaks
 
 10:30-10:45 - Coffee, 2nd Floor

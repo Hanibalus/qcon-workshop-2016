@@ -1,0 +1,12 @@
+Dave Syer, Pivotal
+@david_syer
+
+## Breaks
+
+10:30-10:45 - Coffee, 2nd Floor
+12:00-12:50 - Lunch, 1st Floor
+14:30-14:45 - Coffee, 2nd Floor
+
+## WiFi
+
+It's on the back of your QCon badge: QConLondon2016/10yearsqcon

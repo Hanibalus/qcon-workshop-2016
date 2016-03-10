@@ -25,6 +25,8 @@ https://github.com/dsyer/spring-boot-4tw
 Docker compose convenience (for starting rabbit etc. locally):
 https://github.com/dsyer/docker-services
 
+Open Zipkin: http://zipkin.io/
+
 ## Breaks
 
 10:30-10:45 - Coffee, 2nd Floor

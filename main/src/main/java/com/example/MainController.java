@@ -19,17 +19,17 @@ package com.example;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
  * @author Dave Syer
  *
  */
 @RestController
-@RefreshScope
 public class MainController {
 
 	@Autowired
@@ -46,8 +46,12 @@ public class MainController {
 	}
 
 	@RequestMapping("/greeting")
+	@HystrixCommand(fallbackMethod="fallback")
 	public Greeting greeting() {
 		return restTemplate.getForObject(uri + "/greetings/1", Greeting.class);
 	}
 
+	public Greeting fallback() {
+		return new Greeting("Oops");
+	}
 }

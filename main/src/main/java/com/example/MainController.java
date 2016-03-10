@@ -17,6 +17,7 @@
 package com.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,8 +32,8 @@ public class MainController {
 	private Greetings greetings;
 
 	@RequestMapping("/greeting")
-	public Greeting greeting() {
-		return greetings.get(1);
+	public Greeting greeting(@RequestHeader("Cookie") String cookie) {
+		return greetings.get(1, cookie);
 	}
 
 }

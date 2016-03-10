@@ -18,11 +18,12 @@ package com.example;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient("greetings")
 interface Greetings {
 	@RequestMapping(value="/greetings/{id}", method=RequestMethod.GET)
-	Greeting get(@PathVariable("id") int id);
+	Greeting get(@PathVariable("id") int id, @RequestHeader("Cookie") String cookie);
 }

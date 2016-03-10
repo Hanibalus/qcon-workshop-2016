@@ -1,2 +1,9 @@
 spring.application.name: greetings
 server.port: 9000
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: output
+          content-type: application/x-java-object;type=com.example.Greeting

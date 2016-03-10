@@ -16,14 +16,11 @@
 
 package com.example;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
  * @author Dave Syer
@@ -33,25 +30,12 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class MainController {
 
 	@Autowired
-	private MainProperties main;
-
-	@Autowired
+	@LoadBalanced
 	private RestTemplate restTemplate;
 
-	private String uri;
-
-	@PostConstruct
-	public void init() {
-		uri = main.getUri();
-	}
-
 	@RequestMapping("/greeting")
-	@HystrixCommand(fallbackMethod="fallback")
 	public Greeting greeting() {
-		return restTemplate.getForObject(uri + "/greetings/1", Greeting.class);
+		return restTemplate.getForObject("http://greetings/greetings/1", Greeting.class);
 	}
 
-	public Greeting fallback() {
-		return new Greeting("Oops");
-	}
 }

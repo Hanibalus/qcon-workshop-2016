@@ -16,23 +16,13 @@
 
 package com.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * @author Dave Syer
- *
- */
-@RestController
-public class MainController {
-
-	@Autowired
-	private Greetings greetings;
-
-	@RequestMapping("/greeting")
-	public Greeting greeting() {
-		return greetings.get(1);
-	}
-
+@FeignClient("greetings")
+interface Greetings {
+	@RequestMapping(value="/greetings/{id}", method=RequestMethod.GET)
+	Greeting get(@PathVariable("id") int id);
 }

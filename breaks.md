@@ -1,6 +1,10 @@
 Dave Syer, Pivotal
 @david_syer
 
+## Code in Github
+
+https://github.com/dsyer/qcon-workshop-2016
+
 ## Breaks
 
 10:30-10:45 - Coffee, 2nd Floor

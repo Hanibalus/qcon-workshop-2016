@@ -16,13 +16,13 @@
 <body ng-app="app">
 	<h1>Demo</h1>
 	<div class="container" ng-controller="home as home">
-		{{home.greeting.msg}}</div>
+		Hello: {{home.user}}</div>
 	<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
 	<script type="text/javascript">
 		angular.module("app", []).controller("home", function($http) {
 			var self = this;
-			$http.get("/greetings/1").then(function(response) {
-				self.greeting = response.data;
+			$http.get("/user").then(function(response) {
+				self.user = response.data;
 			})
 		});
 	</script>

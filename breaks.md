@@ -5,6 +5,10 @@ Dave Syer, Pivotal
 
 https://github.com/dsyer/qcon-workshop-2016
 
+https://github.com/spring-io/sagan
+
+https://github.com/dsyer/spring-boot-4tw
+
 ## Breaks
 
 10:30-10:45 - Coffee, 2nd Floor

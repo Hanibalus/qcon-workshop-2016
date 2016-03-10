@@ -16,14 +16,14 @@
 <body ng-app="app">
 	<h1>Demo</h1>
 	<div class="container" ng-controller="home as home">
-		{{home.greeting.msg}}
-	</div>
+		{{home.greeting.msg}}</div>
 	<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
 	<script type="text/javascript">
-		angular.module("app", []).controller("home", function() {
-			this.greeting = {
-				msg : "Hello World"
-			};
+		angular.module("app", []).controller("home", function($http) {
+			var self = this;
+			$http.get("/greeting").then(function(response) {
+				self.greeting = response.data;
+			})
 		});
 	</script>
 </body>

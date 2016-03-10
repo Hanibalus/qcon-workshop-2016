@@ -9,6 +9,8 @@ https://github.com/spring-io/sagan
 
 https://github.com/dsyer/spring-boot-4tw
 
+https://github.com/dsyer/docker-services
+
 ## Breaks
 
 10:30-10:45 - Coffee, 2nd Floor

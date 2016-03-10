@@ -3,21 +3,27 @@ package com.example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
-@EnableConfigurationProperties(ApplicationProperties.class)
 public class MainApplication {
-	
+
 	@Autowired
-	private ApplicationProperties application;
-	
+	private RestTemplate restTemplate;
+
+	@Bean
+	public RestTemplate RestTemplate() {
+		return new RestTemplate();
+	}
+
 	@RequestMapping("/greeting")
 	public Greeting greeting() {
-		return new Greeting(application.getMessage());
+		return restTemplate.getForObject("http://localhost:9000/greetings/1",
+				Greeting.class);
 	}
 
 	public static void main(String[] args) {

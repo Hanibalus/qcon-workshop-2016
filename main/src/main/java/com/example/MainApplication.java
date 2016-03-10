@@ -1,29 +1,23 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@ConfigurationProperties("app")
+@EnableConfigurationProperties(ApplicationProperties.class)
 public class MainApplication {
 	
-	private String message = "Hello Config Props";
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
+	@Autowired
+	private ApplicationProperties application;
+	
 	@RequestMapping("/greeting")
 	public Greeting greeting() {
-		return new Greeting(message);
+		return new Greeting(application.getMessage());
 	}
 
 	public static void main(String[] args) {

@@ -29,7 +29,7 @@ Open Zipkin: http://zipkin.io/
 
 Spring Security tutorials:
 https://spring.io/guides/tutorials/spring-security-and-angular-js/ and
-https://spring.io/guides/tutorials/spring-boot-oauth2/
+for OAuth2 SSO: https://spring.io/guides/tutorials/spring-boot-oauth2/
 
 ## Breaks
 

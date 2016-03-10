@@ -2,6 +2,8 @@ spring.application.name: greetings
 server.port: 9000
 logging.level.org.springframework.security: DEBUG
 security.user.password: password
+management:
+  context-path: /admin
 security:
   oauth2:
     resource:
